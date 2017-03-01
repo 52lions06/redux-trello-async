@@ -13,7 +13,7 @@ export class Board extends React.Component {
 
         fetch('/board').then(res => {
             if (!res.ok) {
-                return;
+                return Promise.reject(res.statusText);
             }
             return res.json();
         }).then(board => {
